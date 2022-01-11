@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+formulario extraido del sitio https://mdbootstrap.com/docs/standard/extended/login/
+-->
+<html>
+    <head th:replace="/fragments/head :: head"></head>
+    
+    <body>
+        <section class="vh-100" style="z-index: 2; background: linear-gradient(to bottom, #94B3FD,#B983FF);">
+         <div class=" py-5 h-100">
+           <div class="row d-flex justify-content-center align-items-center h-100">
+
+               <div class="card" style="border-radius: 1rem;">
+                 <div class="row g-0">
+                   <div class="col-md-12  d-flex align-items-center">
+                       <div class="card-body p-6 p-lg-6 text-black" style="z-index: 3;">
+                         <div style="text-align: center"><h1>PORTAFOLIO</h1></div>
+                         <div style="width:  300px;text-align: center">Para acceder es necesario contar
+                         con un correo electronico valido al cual se enviaran las credenciales de
+                         acceso</div>
+                        <hr style="  height: 2px;  width: 100%;  background-color:gray;">
+                        <!--ACCESO RAPIDO -->
+                       <form action="/mail" method="POST">                                            
+                         <div class="form-outline mb-4">
+                             <input type="email" id="form2Example17" name="email" class="form-control form-control-lg" placeholder="Email"/>
+                         </div>
+                         <div class="pt-1 mb-4">
+                           <button class="btn btn-warning btn-lg btn-block" type="submit">Solicitar Credenciales</button>
+                         </div>
+                       </form>
+                        <div style="width:  300px; text-align: center">
+                            <p th:if="${correoEnviado != null}" th:text="${correoEnviado}" style="color:red;"> 
+                        </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+       </section>       
+
+        <div th:replace="/fragments/modalRegistrar :: div"></div>   
+        
+        <div class="area" >
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                               <li></li>
+                    <li></li>
+                               <li></li>
+                    <li></li>
+                               <li></li>
+                    <li></li>
+                               <li></li>
+                    <li></li>           <li></li>
+                    <li></li>           <li></li>
+                    <li></li>
+                               <li></li>
+                    <li></li>
+  
+            </ul>
+        </div >
+     
+    </body>
+</html>

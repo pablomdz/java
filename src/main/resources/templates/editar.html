@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <head th:replace="/fragments/head :: head"></head>
+       <title>ArgNet-Registro</title>
+        <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        
+            <body>
+       <!-- BARRA DE NAVEGACION DE la pc-->
+        <div id="navegacionTelefono" class="navegacionPc"  >
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100%">
+            <a class="navbar-brand" >  <i class="fa fa-home fa-1x"  style="color:gray"></i> </a>
+            <a href="/logout"> <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+                </button></a>
+            
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="/welcome">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin">Panel de usuario</a>
+                </li> 
+              </ul>    
+              <span th:text="${usuario}" style="color:black" class="nav-link"></span> 
+              <a href="/logout">(salir) </a>
+            </div>
+          </nav>                    
+        </div>
+       
+         <!-- BARRA DE NAVEGACION DEL TELEFONO-->
+        <div id="navegacionTelefono" class="navegacionTelefono"  style="z-index: 999" >
+            <nav class="navbar  navbar-light bg-light" style="width: 100%"> 
+                <button style="width: 100%" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>  <span th:text="${usuario}" style="width: 100%"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <a class="navbar-brand" href="/welcome">Inicio</a> 
+              <a class="navbar-brand" href="/admin">Panel de usuario</a>
+              <a class="navbar-brand" href="/logout">Salir</a>            
+            </div>
+          </nav>                         
+        </div>
+         
+         
+        <div class="jumbotron text-center">
+            <h1>Editar usuario</h1>
+        </div>
+         <div id="contenedor" class="row"  style="margin: 10px">
+             <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3
+                    col-12">
+                 
+                 <form action="editarRegistro" method="POST">                            
+                            
+                             <div class="form-group">
+                                <label for="id">ID</label>
+                                <input  readonly  id="id" name="id"
+                                    class="form-control" type="text"
+                                     th:value="${usuarios.id}">  
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input readonly id="name" name="name"
+                                    class="form-control" type="text"
+                                     th:value="${usuarios.name}">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">LastName</label>
+                                <input id="lastname" name="lastname"
+                                    class="form-control" type="text"
+                                    th:value="${usuarios.lastname}">
+                            </div>
+                            <div class="form-group">
+                                <label for="correo">Email</label>
+                                <input readonly  id="email" name="email"
+                                    class="form-control" type="email"
+                                    th:value="${usuarios.email}">
+                            </div>
+                            <div class="form-group">
+                                <label for="nacimiento">Fecha de nacimiento</label>
+                                <input id="nacimiento" name="nacimiento"
+                                    class="form-control" type="date"
+                                    th:value="${usuarios.nacimiento}">
+                            </div>
+                     <div class="form-group">
+                                <label for="actividad">Actividad</label>
+                                
+                                <select name="activo" id="activo" class="form-control">                              
+                                    <option th:value="${usuarios.activo}" selected  th:text="${usuarios.activo}? 'ACTIVO' : 'INACTIVO'"></option>
+                                    <option value="true" text="ACTIVO">ACTIVO</option>
+                                    <option value="false" text="INACTIVO">INACTIVO</option>
+                                </select>
+                                
+                            </div>
+                           
+                           
+                            <button type="submit" class="btn btn-primary mb-4">
+                                Editar
+                            </button>                          
+                </form>
+             </div>
+        </div>
+</html>

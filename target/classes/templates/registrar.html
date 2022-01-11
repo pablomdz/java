@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+       <title>ArgNet-Registro</title>
+        <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="jumbotron text-center">
+            <h1>Registro de usuario</h1>
+        </div>
+        <div id="contenedor" class="row" >
+             <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3
+                    col-12">
+                 <form action="cargarRegistro" method="POST">                            
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input id="name" name="name"
+                                    class="form-control" type="text"
+                                    placeholder="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">LastName</label>
+                                <input id="lastname" name="lastname"
+                                    class="form-control" type="text"
+                                    placeholder="lastname">
+                            </div>
+                            <div class="form-group">
+                                <label for="correo">Email</label>
+                                <input id="email" name="email"
+                                    class="form-control" type="email"
+                                    placeholder="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" name="password"
+                                    class="form-control" type="password"
+                                    placeholder="password">
+                            </div>
+                             <div class="form-group">
+                                <label for="nacimiento">Fecha de nacimiento</label>
+                                <input id="nacimiento" name="nacimiento"
+                                    class="form-control" type="date"
+                                    placeholder="dd/mm/aaaa">
+                            </div>
+                     
+               
+                            <br>
+                            <button type="submit" class="btn btn-primary mb-4">
+                                Registrar
+                            </button>                          
+                </form>
+             </div>
+        </div>
+</html>

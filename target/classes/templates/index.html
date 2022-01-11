@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    
+    <head th:replace="/fragments/head :: head"></head>
+    
+    <body>
+       <!-- BARRA DE NAVEGACION DE la pc-->
+        <div id="navegacionTelefono" class="navegacionPc"  >
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 100%">
+            <a class="navbar-brand" >  <i class="fa fa-home fa-1x"  style="color:gray"></i> </a>
+            <a href="/logout"> <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+                </button></a>
+            
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="/welcome">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Estadisicas</a>
+                </li> 
+              </ul>    
+              <span th:text="${usuario}" style="color:black" class="nav-link"></span> 
+              <a href="/logout">(salir) </a>
+            </div>
+          </nav>                    
+        </div>
+        
+        
+        <div class="priority-1" id="cabecera"  >          
+            <div  id="logo" class="priority-1">
+                <img src="/images/logo.png" height="55%"> 
+            </div>          
+            <div id="titulo" >            
+                <div class="Iam">                         
+                    <b>
+                    <div class="innerIam">
+                        for create<br /> 
+                        for read<br />
+                        for update<br />
+                        for dalete<br />
+                        with SpringBoot
+                    </div>
+                    </b>
+                </div>
+            </div>                                         
+        </div>
+        
+        <!-- BARRA DE NAVEGACION DEL TELEFONO-->
+        <div id="navegacionTelefono" class="navegacionTelefono"  style="z-index: 999" >
+            <nav class="navbar  navbar-light bg-light" style="width: 100%"> 
+                <button style="width: 100%" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>  <span  th:utext="${#strings.abbreviate(usuario,15)}" style="width: 100%"></span>
+               
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+              <a class="navbar-brand" href="/welcome">Inicio</a> 
+              <a class="navbar-brand" href="/logout">Salir</a>            
+            </div>
+          </nav>                         
+        </div>
+        
+        <!-- BOTONES REGISTRAR BUSCAR Y ORDENAR-->
+        <div id="botonera" class="navbar  navbar-light bg-light" style="width: 100%;margin: auto" >                             
+            
+            <div  id="registrar" class="col-sm" >
+                <button type="button" class="btn btn-info" style="width: 100%" data-toggle="modal" data-target="#modalRegistrar">
+                    <h5>Registrar</h5>
+                    <i class="fa fa-pencil fa-1x"  style="color:white"></i>                                     
+                </button>               
+            </div>
+            
+            <div id="buscar" class="col-sm">
+               <button type="button" class="btn btn-info"  style="width: 100%" data-toggle="modal" data-target="#modalBuscar">
+                    <h5>Buscar</h5>
+                    <i class="fa fa-search fa-1x"  style="color:white"></i>
+               </button>
+            </div>
+           
+            <div id="ordenar" class="col-sm" >
+                <button type="button" class="btn btn-info" style="width: 100%"  data-toggle="modal" data-target="#modalOrdenar">
+                    <h5>Ordenar</h5>                    
+                    <i class="fa fa-arrow-up fa-1x" style="color:white"></i>
+                    <i class="fa fa-arrow-down fa-1x" style="color:white"></i>       
+                </button>                             
+            </div>
+        
+        </div>
+        
+        <br>
+        <!-- MENSAJE -->
+        <div style="width: 90%;margin: auto" th:classappend="'alert-' + (${clase != null} ? ${clase} : danger)" th:if="${mensaje != null}"
+             th:text="${mensaje}"
+             class="alert">
+        </div> 
+        
+        <div style="width: 90%;margin: auto" th:classappend="'alert-' + (${clase != null} ? ${clase} : success)" th:if="${mensaje_exitoso != null}"
+             th:text="${mensaje_exitoso}"
+             class="alert">
+        </div>
+        
+        <!-- USUARIOS REGISTRADOS-->   
+        <div id="navegacionTelefono"   >
+            <nav class="navbar  navbar-light bg-light" style="width:100%;text-align:center;margin: auto"> 
+                <H4 style="width: 100%;text-align:center">USUARIOS REGISTRADOS </H4>
+          </nav>                         
+        </div>
+        
+        <!-- TABLA CON USUARIOS-->      
+        <div style="width: 100%;margin: auto" class="container">
+            <table class="table" style="margin: auto;">                                  
+                  <tr>
+                    <th  class="priority-1" scope="col">ID</th>
+                    <th scope="col">NAME</th>
+                    <th class="priority-1" scope="col">LAST</th>
+                    <th scope="col">EMAIL</th>
+                    <th class="priority-1" scope="col">ACT.</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="usuarios:${usuarios}">
+                    <td class="priority-1"> <a th:href="${usuarios.id}"><i class="fa fa-id-card-o" aria-hidden="true"></i></a> </td>
+                    <td th:utext="${#strings.abbreviate(usuarios.name,10)}"></td>
+                    <td class="priority-1" th:utext="${#strings.abbreviate(usuarios.lastname,10)}"></td>
+                    <td th:utext="${#strings.abbreviate(usuarios.email,10)}"></td>
+                    <td class="priority-1"> <label th:text="${usuarios.activo}? 'ACT' : 'INAC'"></label></td> 
+                    <td>
+                      <form action="editar" method="POST">                                                       
+                        <input type="hidden" id="id_editar" name="id_editar"  th:value="${usuarios.id}">                  
+                        <button type="submit" class="btn btn-warning"><i class="fa fa-pencil fa"  style="color:white"></i></button> 
+                      </form>
+                    </td> 
+                    <td>
+                      <form action="editar_pass" method="POST">                                                       
+                        <input type="hidden" id="editar_pass" name="editar_pass"  th:value="${usuarios.id}">                  
+                        <button type="submit" class="btn btn-success"><i class="fa fa-user-secret fa"></i></button> 
+                      </form>
+                    </td>
+                    <td>  
+                      <form action="eliminar" method="POST">                                                       
+                        <input type="hidden" id="id" name="id" th:value="${usuarios.id}">                  
+                        <button type="submit" class="btn btn-danger"><i class="fa fa-remove fa"></i></button> 
+                      </form>
+                    </td>  
+                  </tr>                
+                </tbody>
+              </table>
+            
+         
+            <p style='text-align: right'> <a th:href="'/admin?pag='+${paginacionAnterior}"><i class="fa fa-backward fa"  style="color:blue"></i> anterior</a> - <a th:href="'/admin?pag='+${paginacionPosterior}">siguiente <i class="fa fa-forward fa"  style="color:blue"></i></a></p>
+        </div>
+        
+        <br>
+        <!-- UHISTORIAL DE OPERACIONES-->   
+        <div id="navegacionTelefono"   >
+            <nav class="navbar  navbar-light bg-light" style="width: 100%;text-align:center"> 
+                <H4 style="width: 100%;text-align:center">ULTIMAS 5 OPERACIONES</H4>
+          </nav>                         
+        </div>  
+        <!--- TABLA CON REGISTROS -->
+         <div style="width: 100%;margin: auto" class="container">
+            <table class="table" style="margin: auto;">                                  
+                  <tr>
+                    <th class="priority-1" scope="col">ID</th>
+                    <th scope="col">ID modificado</th>
+                    <th  class="priority-1"scope="col">ID modificador</th>
+                    <th scope="col">Operacion</th>
+                    <th scope="col">Fecha</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="registros:${registros}">                  
+                    <td  class="priority-1"th:utext="${#strings.abbreviate(registros.id,10)}"></td>
+                    <td th:utext="${#strings.abbreviate(registros.idModificado,10)}"></td>
+                    <td  class="priority-1"th:utext="${#strings.abbreviate(registros.idUser,10)}"></td>
+                    <td th:utext="${registros.log}"></td>  
+                                     
+                    <td th:utext="${registros.fecha}"></td>
+                   
+  
+                  </tr>                
+                </tbody>
+              </table>
+        </div>
+        
+
+        
+         
+        <!-- Footer -->
+        <footer class="page-footer font-small blue">
+
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2021 Copyright:
+            <a href="https://mdbootstrap.com/"> figueroapablo.ar</a>
+          </div>
+          <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+        
+        <!------- Modal buscador -->
+        <div class="modal fade" id="modalBuscar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Buscador</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                    <div>    
+                        <form action="/buscar" method="POST"> 
+                            <div class="form-group">
+                              <label>Datos a buscar</label>
+                              <input type="text" class="form-control" id="dato_buscar" name="dato_buscar" placeholder="dato a buscar">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleFormControlSelect1">Tipo de datot</label>
+                              <select class="form-control" id="dato_tipo" name="dato_tipo">
+                                     <option value="" selected>Seleccione tipo</option>
+                                    <option value="id" selected>ID</option>
+                                    <option value="email">Email</option>
+                              </select>
+                            </div>
+                            <div  class="form-group">
+                                <button class="btn btn-info" type="submit" style="width: 100%">
+                                    Buscar
+                                </button>
+                            </div>
+                          </form>
+                    </div>
+              </div>
+             
+            </div>
+          </div>
+        </div>             
+      
+        
+         <!------- Modal registrar-------------------------->
+        <div class="modal fade" id="modalRegistrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Registrar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                    <div> 
+                          <div id="contenedor" >
+                                <div id="login">
+                                    <form action="cargarRegistro" method="POST">                            
+                                               <div class="form-group">
+                                                   <label for="name">Name</label>
+                                                   <input id="name" name="name"
+                                                       class="form-control" type="text"
+                                                       placeholder="name">
+                                               </div>
+                                               <div class="form-group">
+                                                   <label for="lastname">LastName</label>
+                                                   <input id="lastname" name="lastname"
+                                                       class="form-control" type="text"
+                                                       placeholder="lastname">
+                                               </div>
+                                               <div class="form-group">
+                                                   <label for="correo">Email</label>
+                                                   <input id="email" name="email"
+                                                       class="form-control" type="email"
+                                                       placeholder="email">
+                                               </div>
+                                               <div class="form-group">
+                                                   <label for="password">Password</label>
+                                                   <input id="password" name="password"
+                                                       class="form-control" type="password"
+                                                       placeholder="password">
+                                               </div>
+                                                <div class="form-group">
+                                                   <label for="nacimiento">Fecha de nacimiento</label>
+                                                   <input id="nacimiento" name="nacimiento"
+                                                       class="form-control" type="date"
+                                                       placeholder="dd/mm/aaaa">
+                                               </div>
+
+                                               <div class="form-group">
+                                                   Rol
+                                                 <select id="rol" name="rol">
+                                                   <option value="admin">Administrador</option>
+                                                   <option value="user">Usuario</option>
+                                                 </select>       
+                                               </div>
+
+                                               <br>
+                                               <button type="submit" class="btn btn-info"  style="width: 100%">
+                                                   Registrar
+                                               </button>                          
+                                   </form>
+                                </div>
+                           </div>
+                    </div>
+              </div>        
+            </div>
+          </div>
+        </div>  
+         
+         
+        <!------- Modal ordenar-------->
+        <div class="modal fade" id="modalOrdenar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Ordenar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div>
+                    <div  class="modal-body">    
+                        <form action="/admin" method="GET"> 
+                              
+                             <p>Seleccione el criterio por el cual desea ordenar los resultados:</p>   
+                              
+                            <table style="width: 60%;">                        
+                                <tr>
+                                    <td>
+                                      <input checked="" type="radio" id="ordenarNombre" name="dato" value="name">
+                                      <label for="html">Nombre</label><br>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                      <input type="radio" id="ordenarApellido" name="dato" value="lastname">
+                                      <label for="css">Apellido</label><br>
+                                    </td>
+                                 </tr>
+                                 <tr>   
+                                    <td>
+                                       <input type="radio" id="ordenarNacimiento" name="dato" value="nacimiento">
+                                       <label for="javascript">Nacimiento</label> 
+                                    </td>
+                                 </tr>
+                                 <tr>    
+                                    <td>
+                                      <input type="radio" id="ordenarActividad" name="dato" value="actividad">
+                                      <label for="javascript">Actividad</label>  
+                                    </td>
+                                 </tr>
+                                 <tr>    
+                                    <td>
+                                      <input type="radio" id="ordenarInactividad" name="dato" value="inactividad">
+                                      <label for="javascript">Inactividad</label>  
+                                    </td>
+                                 </tr>                                 
+                               
+                            </table>  
+                            
+                            <p>Tipo de orden</p>   
+                            
+                            <table style="width: 60%;">                        
+                                <tr>
+                                    <td>
+                                      <input checked="" type="radio" id="datoAsc" name="orden" value="asc">
+                                      <label>Ascendente</label><br>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td>
+                                        <input type="radio" id="datoDesc" name="orden" value="desc">
+                                      <label>Descendente</label><br>
+                                    </td>
+                                 </tr>
+                                 
+                            </table>  
+                            
+                            
+                            
+                            <div  class="form-group">
+                                <button class="btn btn-info" type="submit" style="width: 100%">
+                                    Ordenar
+                                </button>
+                            </div>
+                          </form>
+                    </div>
+              </div>
+             
+            </div>
+          </div>
+        </div>        
+        
+        
+        <script type="text/javascript">
+            $("#sin_resultado").modal("hide");
+
+            function Values(ID) {
+                $("#id").val(ID);
+            }
+        </script>
+    </body>
+</html>

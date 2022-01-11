@@ -1,0 +1,70 @@
+ <!------- Modal registrar-------------------------->
+        <div class="modal fade" id="modalRegistrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Registrar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                    <div> 
+                          <div id="contenedor" >
+                                <div id="login">
+                                    <form action="cargarRegistro" method="POST">                            
+                                               <div class="form-group">
+                                                   <label for="name">Name</label>
+                                                   <input id="name" name="name"
+                                                       class="form-control" type="text"
+                                                       placeholder="name">
+                                               </div>
+                                               <div class="form-group">
+                                                   <label for="lastname">LastName</label>
+                                                   <input id="lastname" name="lastname"
+                                                       class="form-control" type="text"
+                                                       placeholder="lastname">
+                                               </div>
+                                               <div class="form-group">
+                                                   <label for="correo">Email</label>
+                                                   <input id="email" name="email"
+                                                       class="form-control" type="email"
+                                                       placeholder="email">
+                                               </div>
+                                               <div class="form-group">
+                                                   <label for="password">Password</label>
+                                                   <input id="password" name="password"
+                                                       class="form-control" type="password"
+                                                       placeholder="password">
+                                               </div>
+                                                <div class="form-group">
+                                                   <label for="nacimiento">Fecha de nacimiento</label>
+                                                   <input id="nacimiento" name="nacimiento"
+                                                       class="form-control" type="date"
+                                                       placeholder="dd/mm/aaaa">
+                                               </div>
+
+                                               <div class="form-group">
+                                                   Rol
+                                                 <select id="rol" name="rol">
+                                                   <option value="admin">Administrador</option>
+                                                   <option value="user">Usuario</option>
+                                                 </select>       
+                                               </div>
+
+                                               <div class="form-control">
+                                                   Actividad
+                                                   <td><input type="checkbox" id="actividad"></td> 
+                                               </div>
+                                               <br>
+                                               <button type="submit" class="btn btn-info"  style="width: 100%">
+                                                   Registrar
+                                               </button>                          
+                                   </form>
+                                </div>
+                           </div>
+                    </div>
+              </div>        
+            </div>
+          </div>
+        </div> 

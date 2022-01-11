@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+           <head th:replace="/fragments/head :: head"></head>
+    </head>
+    <body>
+         <section class="vh-100" style="background: linear-gradient(to bottom, #94B3FD,#B983FF);">
+         <div class="py-5 h-100">
+           <div class="row d-flex justify-content-center align-items-center h-100 " >
+               <div class="card" style="border-radius: 1rem; z-index: 999">
+                 <div class="row g-0">
+
+                   <div class="col-md-12  d-flex align-items-center">
+                     <div class="card-body p-6 p-lg-6 text-black" style="text-align: center">
+                         Su direccion IP se encuentra bloqueada.
+                         <p th:if="${bloqueo != null}" th:text="${bloqueo}" style="color:red"></p>                                            
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+       </section>         
+    </body>
+</html>

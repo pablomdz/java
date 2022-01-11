@@ -1,0 +1,258 @@
+<!-- TEMPLATE EXTRAIDO DE https://www.w3schools.com/w3css/w3css_templates.asp
+    Y MODIFICADO EN FORMA PARCIAL POR MI
+-->
+
+<!DOCTYPE html>
+<html>
+<title>Bievenido  - FigueroaPablo.ar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head th:replace="/fragments/head :: head"> 
+
+
+<style>
+html, body, h1, h2, h3, h4, h5 {font-family: "Open Sans", sans-serif}
+</style>
+<body class="w3-theme-l5">
+   
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="/logout"><i class="fa fa-remove"></i></a>
+  <a style="text-decoration:none" class="w3-bar-item w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>FigueroaPablo.ar</a>
+ 
+  <div class="w3-dropdown-hover w3-hide-small">
+  </div>
+  <div class="w3-s"></div>
+  
+  <a href="/logout" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
+  <i class="fa fa-remove"></i>
+   <a style="text-decoration:none;color: white" class="w3-bar-item  w3-padding-large w3-right" title=""  th:text="${mensaje}"></a>
+  </a>
+ </div>
+</div>
+  
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+  <!-- The Grid -->
+  <div class="w3-row">
+    <!-- Left Column -->
+    <div class="w3-col m3">
+      <!-- Profile -->
+      <div class="w3-card w3-round w3-white" style="margin:3px;">
+        <div class="w3-container">
+            <br>
+         <p class="w3-center"><img src="/images/yo.JPG" class="w3-circle" style="height:116px;width:116px" alt="Avatar"></p>
+         <p class="w3-center" >La falta de talento natural se compensa con disciplina y esfuerzo!. </p>
+         <hr>
+         <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Tecnico informatico</p>
+         <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> Mendoza, Argentina</p>
+         <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> Diciembre 19, 1989</p>
+        </div>
+      </div>
+
+      <!-- Accordion -->
+      <div class="w3-card w3-round w3-white" style="margin:3px;" >
+          <div class="w3-container" >
+            <a href="https://github.com/pablomdz/"><button class="btn btn-light" style="width:100%;border-radius: 0px; border-color: grey;margin:3px;"> Github</button></a>           
+            <a href="/images/FigueroaPablo-cv.PNG"><button class="btn btn-light" style="width:100%;border-radius: 0px; border-color: grey;margin:3px;"> Curriculum Vitae</button></a>
+            <a href="https://www.linkedin.com/in/pablo-figueroa-a441b6102"><button class="btn btn-light" style="width:100%;border-radius: 0px; border-color: grey;margin:3px;" data-target=""> Linkedin</button></a>
+
+        </div>      
+      </div>
+
+      <!-- Interests --> 
+      <div class="w3-card w3-round w3-white" style="margin:3px;">
+        <div class="w3-container">
+            <p></p>
+            <p>Habilidades</p>
+          <p>
+            <span class="w3-tag w3-small w3-theme-d5">Creatividad</span>
+            <span class="w3-tag w3-small w3-theme-d5">Pensamiento Critico</span>
+            <span class="w3-tag w3-small w3-theme-d5">Trabajo en equipo</span>
+            <span class="w3-tag w3-small w3-theme-d5">Comunicación efectiva</span>
+            <span class="w3-tag w3-small w3-theme-d4">Java</span>
+            <span class="w3-tag w3-small w3-theme-d4">HTML - CSS</span>
+            <span class="w3-tag w3-small w3-theme-d3">PHP</span>
+            <span class="w3-tag w3-small w3-theme-d2">Hypervisores </span>
+            <span class="w3-tag w3-small w3-theme-d2">Virtualizacion</span>
+            <span class="w3-tag w3-small w3-theme-d2">GIT</span>
+            <span class="w3-tag w3-small w3-theme-d2">Ingles intermedio</span>
+            <span class="w3-tag w3-small w3-theme-d1">Linux and Windows Server</span>
+            <span class="w3-tag w3-small w3-theme">Proxmox - Pfsense</span>
+            <span class="w3-tag w3-small w3-theme-l1">Mantenimientos PC</span>
+            <span class="w3-tag w3-small w3-theme-l2">Cisco - Mikrotic</span>
+            <span class="w3-tag w3-small w3-theme-l3">Seguridad</span>
+            <span class="w3-tag w3-small w3-theme-l4">Photos</span>
+            <span class="w3-tag w3-small w3-theme-l5">Redes Sociales</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Trabajos --> 
+      <div class="w3-card w3-round w3-white" style="margin:3px;">
+        <div class="w3-container">
+            <p></p>
+            <p>Estudios academicos</p>
+          <p>
+            <p>
+            <span class="w3-tag w3-small w3-theme-d1">2022</span>
+            <span class="w3-tag w3-small w3-theme-l5">Licenciatura</span>
+            <a href="https://www.iupfa.edu.ar/cl_ticsp.html">Ciclo de licenciatura en tecnologias de la informacion y comunicaciones para la seguridad publica  
+            (IUPFA)</a>
+           </p>
+           <p>
+            <span class="w3-tag w3-small w3-theme-d1">2016-2020</span>
+            <span class="w3-tag w3-small w3-theme-l5">Tecnicatura</span>
+            <a href="https://itu.uncuyo.edu.ar/estudios/carrera/tecnicatura-universitaria-en-redes-de-datos-y-telecomunicaciones">Tecnico en redes de datos y telecomunicaciones (ITU - UNC) </a>
+           </p>
+           <p>
+            <span class="w3-tag w3-small w3-theme-d1">2015</span>
+            <span class="w3-tag w3-small w3-theme-l5">Diplomatura</span>
+            Armado y reparacion de computadores (UTN-FRM)
+           </p>  
+           <p>
+            <span class="w3-tag w3-small w3-theme-d1">2021</span>
+            <span class="w3-tag w3-small w3-theme-l5">Curso</span>
+            <a href="https://carreras.eggeducacion.com/ar/programacion/"> Desarrollador web Fullstack JAVA (EGG)</a>
+           </p>  
+        </div>
+      </div>
+
+       <!-- Trabajos --> 
+      <div class="w3-card w3-round w3-white " style="margin:3px;">
+        <div class="w3-container">
+            <p></p>
+            <p>Experiencia laboral</p>
+            <p></p>
+            <p>Desde hace 5 años desempeño tareas como administrador de sistemas 
+               en Delitos Tecnologicos de la Policia de Mendoza, Argentina.
+            </p>
+            Las tareas mas frecuentemente son el diseño, implementacion y modificacion
+            de pequeños sitios web, administracion de redes y pericias forences.
+        </div>
+      </div>
+
+    <!-- End Left Column -->
+    </div>
+    
+    <!-- Middle Column -->
+    <div class="w3-col m6">      
+       <div class="w3-container w3-card w3-round  w3-white" style="margin:3px; ">     
+          <h4 class="w3-opacity">Bienvenidos a mi portafolio web.</h4>
+           <span> <h4 class="w3-center">El sitio FigueroaPablo.ar ha sido creado con la finalidad de compartir mis primeros pasos en el mundo de la programacion.</p>
+               </h4></span>
+       </div>  
+   
+       <div class="w3-container w3-card w3-white" style="margin:3px;">
+         <h4 class="w3-opacity">Datos del sitio web</h4>
+         <p style="text-indent:30px">El mismo se encuentra desplegado sobre los servicios de proporcionados por Amazon Web Service, en una instancia tipo EC2, la cual esta provista por un Ubuntu Server 20.04.</p></span> </p>   
+        <p style="text-indent:30px">Para el diseño del sitio se utilizó Java 8 con el framework SpringBoot y la biblioteca Thymeleaf. Además de utilizar la tecnologia HTML5,CSS, y
+        algunos script en JavaScript, y bases de datos MySQL, con consultas JPA y Nativas,</p>
+        <p style="text-indent:30px">Respecto a la arquitectura del software, se utilizó el patron Modelo-Vista-Controlador. </p>
+        <p class="w3-center" style="margin:10px"><img src="/images/banner.PNG" width="90%"/></p>
+       </div> 
+    
+       <div class="w3-container w3-card w3-white w3-round" style="margin:3px;">
+        <h4 class="w3-opacity">Acceso al panel de administración</h4>
+        <p style="text-indent:30px">
+            A continuación se puede observar el panel de administrador de usuarios y 
+            registros de eventos. Dicho panel ha sido modificado con la intención de 
+            mejorar la seguridad del sitio.
+        </p>
+        <p class="w3-center" > 
+            <a href="/admin"> <button type="button"  class="btn btn-warning">VISTA ADMINISTRADOR</button> </a>
+        </p>
+       </div>
+    
+    
+    
+     <div class="w3-container w3-card w3-white w3-round" style="margin:3px;">
+        <h4>CHALLENGE BACKEND - Java</h4>
+        <p style="text-indent:30px">Actualmente me encuentro realizando el desafio propuesto por la aceleradora alkemy.org donde solicita "Desarrollar una API para explorar el mundo de Disney, la cual permitirá conocer y modificar los
+        personajes que lo componen y entender en qué películas estos participaron. Por otro lado, deberá
+        exponer la información para que cualquier frontend pueda consumirla". El desafio completo se encuentra <a href=" https://drive.google.com/file/d/1x0ogARF_Szza6wXIzIljt2PYXZ5bIG_4/view">aqui</a>  </p>
+        <p class="w3-center"><img  src="https://campus.alkemy.org/logos/logo_labs.svg" width="150px"></p>
+
+     </div> 
+        
+     
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    
+    <div class="w3-col m3">      
+      <div class="w3-card w3-round w3-white w3-center" style="margin:3px;">
+          <div class="w3-container"> 
+              <br>
+                 <button class="btn btn-success" style="width:100%; border-color: grey">  <a href=" https://wa.me/+5492613389705?text=Hola,%20estoy%20visitando%20tu%20sitio!"  style="text-decoration:none" title="WhatsApp"><i class="fa fa-phone w3-margin-right "></i>WhatsApp</a>
+                </button>
+            <p></p>
+        </div>
+      </div>
+      
+      <div class="w3-card w3-round w3-white w3-center" style="margin:3px;">
+          <div class="w3-container">
+            <br>
+                 <button class="btn btn-info" style="width:100%; border-color: grey">  <a href=" https://t.me/p4bl0mza"  style="text-decoration:none" title="WhatsApp"><i class="fa fa-phone w3-margin-right "></i>Telegram</a>
+                </button>
+           <p></p>
+        </div>
+      </div> 
+      
+      <div class="w3-card w3-round w3-white w3-center" style="margin:3px;">
+          <div class="w3-container">
+              <br>
+            <p> 
+                <a href="https://open.spotify.com/playlist/1Vi7UvL3PcV28dfaFs1wiR?si=f1457641278a455f">
+                    <button class="btn btn-light" style="width:100%;border-radius: 0px; border-color: grey"><a href="https://open.spotify.com/playlist/1Vi7UvL3PcV28dfaFs1wiR?si=f1457641278a455f"  style="text-decoration:none; " title="spotify"><i class="fa fa-music w3-margin-right "></i>Mi lista Spotify</a></button>
+                </a>
+            </p>
+            <p style="margin:3px">
+                <iframe  src="https://open.spotify.com/embed/playlist/1Vi7UvL3PcV28dfaFs1wiR?utm_source=generator&theme=0" width="100%" height="450" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </p>
+            <p></p>
+          </div>
+      </div>
+      
+       
+      <div class="w3-card w3-round w3-white w3-center" style="margin:3px;">
+        <div class="w3-container">
+            <p></p>
+            <button class="btn btn-light" style="width:100%;border-radius: 0px; border-color: grey"> Hobbies</button>
+            <p>   <li  style="text-align:left" >Ciclismo de montaña</li>
+                    <li style="text-align:left">Uso de herramientas de mano</li>
+                    <li style="text-align:left">Pesca deportiva</li>
+                    <li style="text-align:left">Deportes acuaticos</li>                   
+                    <li style="text-align:left">Jardineria</li>
+                    <li style="text-align:left">Cinefilo</li>
+                </p>
+            
+            <div id="Demo1" class="w3-hide w3-container">
+              
+          </div>
+        </div>
+          <br>
+      </div>
+      
+
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+  <h5 class="w3-center">pablo.fernando.figueroa@gmail.com</h5>
+</footer>
+
+ 
+</body>
+</html> 
